@@ -1,4 +1,4 @@
-/**
+/**!
  * Theme Name: Test Theme for Orb WP Engine Deploy
  * Theme URI: https://github.com/ryanshoover/test-theme-orb-wpengine-deploy
  * Author: ryanshoover
@@ -9,7 +9,14 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
+$width-max: 1200px;
+$font-size: 16px;
+
 body {
-    color: #080808;
-    font: 300 16px/1.35 Arial;
+	color: #080808;
+	font: 300 $font-size/1.35 Arial, sans-serif;
+}
+
+.content-area {
+	max-width: $width-max;
 }

@@ -1,0 +1,21 @@
+{
+    "name": "test-theme-orb-wpengine-deploy",
+    "version": "1.0.0",
+    "description": "Test theme for the WP Engine deploy orb",
+    "main": "index.php",
+    "repository": "git@github.com:ryanshoover/test-theme-orb-wpengine-deploy.git",
+    "author": "Ryan Hoover <ryan.hoover@wpengine.com>",
+    "license": "GPL-2.0-or-later",
+    "devDependencies": {
+        "node-sass": "^4.14.1",
+        "stylelint": "^13.6.1",
+        "stylelint-config-wordpress": "^17.0.0"
+    },
+    "scripts": {
+        "build": "node-sass src/sass/style.scss style.css",
+        "lint": "stylelint src/sass/*.scss"
+    },
+    "stylelint": {
+        "extends": "stylelint-config-wordpress"
+    }
+}
