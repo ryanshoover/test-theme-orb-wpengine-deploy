@@ -1,0 +1,15 @@
+/**
+ * Theme Name: Test Theme for Orb WP Engine Deploy
+ * Theme URI: https://github.com/ryanshoover/test-theme-orb-wpengine-deploy
+ * Author: ryanshoover
+ * Author URI: https://ryan.hoover.ws
+ * Description: Theme used just for testing the WP Engine deploy orb
+ * Version: 1.0
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ */
+
+body {
+    color: #080808;
+    font: 300 16px/1.35 Arial;
+}

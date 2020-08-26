@@ -1,0 +1,35 @@
+version: 2.1
+
+orbs:
+    wpengine: ryanshoover/wpengine@dev:alpha
+
+workflows:
+    version: 2
+
+    test-deploy:
+        jobs:
+            - wpengine/build:
+                context: orb-test
+
+            - wpengine/lint:
+                context: orb-test
+                requires:
+                    - wpengine/build
+
+            - wpengine/codeception:
+                context: orb-test
+                package_type: theme
+                package_name: test-theme-orb-wpengine-deploy
+                requires:
+                    - wpengine/build
+
+            - wpengine/deploy_fury:
+                context: orb-test
+                requires:
+                    - wpengine/lint
+                    - wpengine/codeception
+                filters:
+                    branches:
+                        ignore: /.*/
+                    tags:
+                        only: /^\d+\.\d+\.\d+$/
