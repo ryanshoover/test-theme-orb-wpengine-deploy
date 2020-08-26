@@ -10,11 +10,21 @@ workflows:
         jobs:
             - wpengine/build:
                 context: orb-test
+                filters:
+                    branches:
+                        only: /.*/
+                    tags:
+                        only: /^\d+\.\d+\.\d+$/
 
             - wpengine/lint:
                 context: orb-test
                 requires:
                     - wpengine/build
+                filters:
+                    branches:
+                        only: /.*/
+                    tags:
+                        only: /^\d+\.\d+\.\d+$/
 
             - wpengine/codeception:
                 context: orb-test
@@ -22,6 +32,11 @@ workflows:
                 package_name: test-theme-orb-wpengine-deploy
                 requires:
                     - wpengine/build
+                filters:
+                    branches:
+                        only: /.*/
+                    tags:
+                        only: /^\d+\.\d+\.\d+$/
 
             - wpengine/deploy_fury:
                 context: orb-test
@@ -30,6 +45,6 @@ workflows:
                     - wpengine/codeception
                 filters:
                     branches:
-                        ignore: /.*/
+                        only: /.*/
                     tags:
                         only: /^\d+\.\d+\.\d+$/
